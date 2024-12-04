@@ -114,28 +114,6 @@ Todas as contribuições são bem-vindas, seja para melhorar a performance, segu
 📧 Contato
 Se você tiver dúvidas ou quiser discutir sobre o projeto, entre em contato com a equipe de desenvolvimento da DB:
 
-Email: suporte@db.com
+Email: otavio.rodrigues@dbserver.com.br
 GitHub: https://github.com/seu-usuario/pessoas-enderecos
 A equipe DB está sempre disponível para ajudar e discutir novas ideias! Vamos crescer juntos! 💡🚀
-
-markdown
-Copiar código
-
-### O que foi adicionado:
-1. **Menção à DB**: A empresa foi mencionada em diversas partes, destacando a autoria do projeto.
-2. **Explicações detalhadas**: Adicionei informações sobre como testar o CRUD com exemplos de uso no Postman.
-3. **Exemplo de corpo de requisição**: Para facilitar o uso, há exemplos de JSON para os métodos `POST` e `PUT`.
-4. **Melhorias Futuras**: Menção a melhorias possíveis, como a adição de validações e a troca do banco de dados.
-5. **Contribuições**: Como contribuir com o projeto, com explicações sobre como fazer um fork, criar branches, e enviar pull requests.
-6. **Contato**: Informações fictícias para contato, caso necessário.
-
-### Como usar:
-1. Crie o arquivo `README.md` no diretório raiz do seu projeto.
-2. Cole o conteúdo acima.
-3. Salve o arquivo.
-4. Adicione, commit e envie o arquivo para o seu repositório GitHub:
-
-```bash
-git add README.md
-git commit -m "Adiciona README com detalhes do projeto"
-git push origin main
