@@ -17,11 +17,10 @@
 	<description>CRUD de pessoas e endereços</description>
 
 	<properties>
-		<java.version>17</java.version> <!-- Considere usar JDK 17 para compatibilidade -->
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
-		<!-- Spring Boot Web, JPA e Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -35,14 +34,25 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- H2 Database para testes -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.2.0.Final</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Spring Boot DevTools (para recarregamento automático e facilitação no desenvolvimento) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -50,7 +60,13 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Testes: JUnit, MockMvc e outras dependências -->
+		<!-- Jakarta Validation API (correspondente ao antigo javax.validation) -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

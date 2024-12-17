@@ -1,6 +1,6 @@
 package com.db.pessoas_enderecos.teste;
 
-import com.db.pessoas_enderecos.controller.PessoaController;
+import com.db.pessoas_enderecos.controller.pessoaController;
 import com.db.pessoas_enderecos.entidade.Pessoa;
 import com.db.pessoas_enderecos.repository.PessoaRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(PessoaController.class)
+@WebMvcTest(pessoaController.class)
 public class PessoaControllerTestes {
 
     @Autowired

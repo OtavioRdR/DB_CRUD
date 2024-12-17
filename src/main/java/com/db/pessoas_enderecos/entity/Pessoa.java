@@ -1,47 +1,26 @@
-package com.db.pessoas_enderecos.entidade;
+package com.db.pessoas_enderecos.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 
 @Entity
 public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @NotNull(message = "Nome é obrigatório")
+    private Long id;
     private String nome;
-    private LocalDate dataNascimento;
-
-    @NotNull(message = "CPF é obrigatório")
-    @Pattern(regexp = "\\d{11}", message = "CPF deve ter 11 dígitos")
-    @Column(nullable = false, unique = true)
-    private String cpf;
-
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Endereco> enderecos;
-
-    public Pessoa() { }
-
-    public Pessoa(String nome, String cpf, LocalDate dataNascimento, List<Endereco> enderecos) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.enderecos = enderecos;
-    }
+    private String email;
 
     // Getters e Setters
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,34 +32,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
-
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
-
-    public int calcularIdade() {
-        if (dataNascimento == null) {
-            return 0;
-        }
-        return Period.between(dataNascimento, LocalDate.now()).getYears();
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
