@@ -7,7 +7,6 @@ import com.db.pessoas_enderecos.dto.PessoaDTO;
 import com.db.pessoas_enderecos.entity.Pessoa;
 import com.db.pessoas_enderecos.service.PessoaService;
 import com.db.pessoas_enderecos.repository.PessoaRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -34,24 +33,21 @@ class PessoaServiceTest {
         pessoaDTO.setNome("João Silva");
         pessoaDTO.setEmail("joao.silva@example.com");
 
-        // Criação do mock da Pessoa com email
+
         Pessoa pessoaMock = new Pessoa();
         pessoaMock.setId(pessoaId);
         pessoaMock.setNome("Nome Original");
-        pessoaMock.setEmail("email.original@example.com");  // Atribuindo um email original
+        pessoaMock.setEmail("email.original@example.com");
 
-        // Configurando o mock para que a pessoa seja encontrada
         when(pessoaRepository.findById(pessoaId)).thenReturn(Optional.of(pessoaMock));
         when(pessoaRepository.save(any())).thenReturn(pessoaMock);
 
-        // Chamada ao serviço
+
         Pessoa resultado = pessoaService.atualizarPessoa(pessoaId, pessoaDTO);
 
-        // Verificar se os dados foram atualizados corretamente
-        assertEquals("João Silva", resultado.getNome());
-        assertEquals("joao.silva@example.com", resultado.getEmail());  // Verificando o email
+        assertEquals("Otavio Rosa", resultado.getNome());
+        assertEquals("otavio.rosa@example.com", resultado.getEmail());
 
-        // Verificar se o save foi chamado uma vez
         verify(pessoaRepository, times(1)).save(any());
     }
 
@@ -62,10 +58,8 @@ class PessoaServiceTest {
         pessoaDTO.setNome("João Silva");
         pessoaDTO.setEmail("joao.silva@example.com");
 
-        // Configurando o mock para que a pessoa não seja encontrada
         when(pessoaRepository.findById(pessoaId)).thenReturn(Optional.empty());
 
-        // Verificar se a exceção é lançada
         assertThrows(PessoaNaoEncontradaException.class, () -> pessoaService.atualizarPessoa(pessoaId, pessoaDTO));
     }
 }

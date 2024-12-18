@@ -10,7 +10,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.db.pessoas_enderecos.repository.PessoaRepository;
 import com.db.pessoas_enderecos.entity.Pessoa;
-import com.db.pessoas_enderecos.dto.PessoaDTO;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PessoaAPIAcceptanceTest {
@@ -23,10 +22,8 @@ class PessoaAPIAcceptanceTest {
 
     @BeforeEach
     void setUp() {
-        // Limpa o banco de dados antes de cada teste
         pessoaRepository.deleteAll();
 
-        // Cria uma pessoa para os testes
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Nome Teste");
         pessoa.setIdade(25);
@@ -36,30 +33,30 @@ class PessoaAPIAcceptanceTest {
 
     @Test
     void testAtualizarPessoa_Sucesso() {
-        String jsonBody = "{\"nome\": \"João Silva\", \"idade\": 30}";
+        String jsonBody = "{\"nome\": \"Otavio Rosa\", \"idade\": 30}";
 
         given()
                 .port(port)
                 .contentType("application/json")
                 .body(jsonBody)
                 .when()
-                .put("/pessoas/1") // Certifique-se de que o ID corresponde ao que foi salvo
+                .put("/pessoas/1")
                 .then()
                 .statusCode(200)
-                .body("nome", equalTo("João Silva"))
+                .body("nome", equalTo("Otavio Rosa"))
                 .body("idade", equalTo(30));
     }
 
     @Test
     void testAtualizarPessoa_FalhaPessoaNaoEncontrada() {
-        String jsonBody = "{\"nome\": \"João Silva\", \"idade\": 30}";
+        String jsonBody = "{\"nome\": \"Otavio Rosa\", \"idade\": 30}";
 
         given()
                 .port(port)
                 .contentType("application/json")
                 .body(jsonBody)
                 .when()
-                .put("/pessoas/999") // ID que não existe
+                .put("/pessoas/999")
                 .then()
                 .statusCode(404)
                 .body("message", equalTo("Pessoa com ID 999 não encontrada"));

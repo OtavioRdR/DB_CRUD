@@ -8,12 +8,11 @@ public class PessoaDTO {
     private String nome;
 
     @NotNull
-    private Integer idade;  // O tipo pode ser Integer ou int
+    private Integer idade;
 
     @NotNull
-    private String email;  // Adicionando o campo email ao DTO
+    private String email;
 
-    // Getters e setters
     public String getNome() {
         return nome;
     }

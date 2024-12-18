@@ -20,13 +20,11 @@ public class EnderecoService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    // Criar um novo endereço a partir de um DTO
     public Endereco criarEndereco(EnderecoDTO enderecoDTO) {
-        // Buscar a pessoa pelo ID
+
         Pessoa pessoa = pessoaRepository.findById(enderecoDTO.getPessoaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Pessoa não encontrada com id: " + enderecoDTO.getPessoaId()));
 
-        // Criar o endereço e associar a pessoa
         Endereco endereco = new Endereco();
         endereco.setLogradouro(enderecoDTO.getLogradouro());
         endereco.setNumero(enderecoDTO.getNumero());

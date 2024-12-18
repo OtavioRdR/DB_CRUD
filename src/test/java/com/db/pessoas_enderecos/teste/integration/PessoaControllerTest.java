@@ -28,35 +28,29 @@ public class PessoaControllerTest {
         MockitoAnnotations.openMocks(this);
         pessoaId = 1L;
         pessoaDTO = new PessoaDTO();
-        pessoaDTO.setNome("João Silva");
-        pessoaDTO.setEmail("joao.silva@example.com");
+        pessoaDTO.setNome("Otavio Rosa");
+        pessoaDTO.setEmail("otavio.rosa@example.com");
     }
 
     @Test
     void testAtualizarPessoa() {
-        // Crie a instância de Pessoa para retornar do mock
         Pessoa pessoaMock = new Pessoa();
         pessoaMock.setId(pessoaId);
-        pessoaMock.setNome("João Silva");
-        pessoaMock.setIdade(30); // Defina a idade
+        pessoaMock.setNome("Otavio Rosa");
+        pessoaMock.setIdade(30);
 
-        // Configurando o mock para o método atualizarPessoa
         when(pessoaService.atualizarPessoa(eq(pessoaId), any())).thenReturn(pessoaMock);
 
-        // Chamada ao método no controller
         ResponseEntity<Pessoa> response = pessoaController.atualizarPessoa(pessoaId, pessoaDTO);
 
-        // Verificar se o código de resposta é 200 (OK)
         assertEquals(200, response.getStatusCode().value());
 
-        // Verificar se a pessoa retornada é a esperada
         Pessoa pessoaRetornada = response.getBody();
         assertNotNull(pessoaRetornada);
         assertEquals(pessoaId, pessoaRetornada.getId());
-        assertEquals("João Silva", pessoaRetornada.getNome());
+        assertEquals("Otavio Rosa", pessoaRetornada.getNome());
         assertEquals(30, pessoaRetornada.getIdade()); // Verificando a idade
 
-        // Verifique se o serviço foi chamado com os parâmetros corretos
         verify(pessoaService, times(1)).atualizarPessoa(eq(pessoaId), any());
     }
 }

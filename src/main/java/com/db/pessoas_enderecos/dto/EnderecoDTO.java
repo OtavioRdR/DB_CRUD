@@ -8,7 +8,6 @@ public class EnderecoDTO {
     private String estado;
     private Long pessoaId;
 
-    // Getters e Setters
     public String getLogradouro() {
         return logradouro;
     }

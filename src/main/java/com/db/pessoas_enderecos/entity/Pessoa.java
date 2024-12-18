@@ -7,14 +7,13 @@ import jakarta.persistence.*;
 public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Geração automática do ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
     private String email;
     private Integer idade;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

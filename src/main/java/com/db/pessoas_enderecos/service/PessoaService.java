@@ -39,7 +39,7 @@ public class PessoaService {
             Pessoa pessoa = optionalPessoa.get();
             pessoa.setNome(pessoaDTO.getNome());
             pessoa.setEmail(pessoaDTO.getEmail());
-            pessoa.setIdade(pessoaDTO.getIdade()); // Certifique-se de que a idade está sendo atualizada
+            pessoa.setIdade(pessoaDTO.getIdade());
             return pessoaRepository.save(pessoa);
         } else {
             throw new PessoaNaoEncontradaException("Pessoa com ID " + id + " não encontrada");

@@ -19,10 +19,9 @@ public class Endereco {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "pessoa_id")  // Relacionamento com a pessoa
+    @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

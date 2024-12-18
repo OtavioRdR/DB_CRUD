@@ -15,14 +15,12 @@ public class EnderecoController {
     @Autowired
     private EnderecoService enderecoService;
 
-    // Método GET para buscar por ID
     @GetMapping("/{id}")
     public ResponseEntity<Endereco> buscarEnderecoPorId(@PathVariable Long id) {
         Endereco endereco = enderecoService.buscarEnderecoPorId(id);
         return ResponseEntity.ok(endereco);
     }
 
-    // Método POST para adicionar um novo endereço
     @PostMapping
     public ResponseEntity<Endereco> adicionarEndereco(@RequestBody EnderecoDTO enderecoDTO) {
         Endereco enderecoSalvo = enderecoService.criarEndereco(enderecoDTO);
