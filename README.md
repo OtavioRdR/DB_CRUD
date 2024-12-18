@@ -1,119 +1,96 @@
-# 📦 Pessoas Endereços - CRUD de Pessoas 🏢
+# 🧑‍🤝‍🧑 Pessoas e Endereços API
 
-Este projeto foi desenvolvido pela **DB** para gerenciar informações de pessoas e seus respectivos endereços de maneira simples e eficiente. Utilizando o poderoso framework **Spring Boot**, criamos uma API RESTful que permite gerenciar dados de pessoas de forma ágil e organizada. O banco de dados utilizado é o **H2**, ideal para testes e desenvolvimento rápido. 
-
-Com este sistema, a **DB** busca otimizar o gerenciamento de dados, oferecendo uma interface simples e funcional para operações básicas de CRUD (Criar, Ler, Atualizar e Deletar).
+Uma API RESTful para gerenciar pessoas e seus endereços, desenvolvida com Spring Boot e Hibernate. Este projeto permite criar, ler, atualizar e excluir informações sobre pessoas e seus endereços.
 
 ## 🚀 Funcionalidades
 
-O sistema oferece um **CRUD completo** para gerenciamento de pessoas. As principais operações são:
+- **Criar Pessoa**: Adicione novas pessoas ao sistema.
+- **Listar Pessoas**: Recupere uma lista de todas as pessoas cadastradas.
+- **Buscar Pessoa por ID**: Encontre uma pessoa específica usando seu ID.
+- **Atualizar Pessoa**: Modifique as informações de uma pessoa existente.
+- **Excluir Pessoa**: Remova uma pessoa do sistema.
 
-- **Listar Pessoas**: Retorna todas as pessoas cadastradas no sistema.
-- **Criar Pessoa**: Permite a criação de uma nova pessoa no banco de dados.
-- **Atualizar Pessoa**: Atualiza as informações de uma pessoa já cadastrada.
-- **Excluir Pessoa**: Deleta uma pessoa do banco de dados.
+## 🛠️ Tecnologias Utilizadas
 
-## ⚙️ Tecnologias Usadas
+- [Spring Boot](https://spring.io/projects/spring-boot) - Framework para desenvolvimento de aplicações Java.
+- [Hibernate](https://hibernate.org/) - ORM para mapeamento objeto-relacional.
+- [H2 Database](https://www.h2database.com/) - Banco de dados em memória para testes.
+- [JUnit](https://junit.org/junit5/) - Framework para testes unitários.
+- [Rest Assured](https://rest-assured.io/) - Biblioteca para testes de APIs REST.
 
-Este projeto foi construído utilizando as seguintes tecnologias:
+## 📦 Instalação
 
-- **Spring Boot 3.x**: Framework robusto para desenvolvimento de aplicações Java.
-- **Spring Data JPA**: Para manipulação de dados com Hibernate.
-- **H2 Database**: Banco de dados em memória, ideal para testes e desenvolvimento rápido.
-- **Maven**: Gerenciador de dependências e build automation.
-- **JUnit**: Ferramenta para testes automatizados, garantindo a qualidade do código.
-
-## 🔧 Como Rodar o Projeto
-
-### Pré-requisitos
-
-Antes de rodar o projeto, é necessário ter os seguintes programas instalados em sua máquina:
-
-- **JDK 23** ou superior.
-- **Maven** (para gerenciar dependências e executar o projeto).
-
-### Passos
-
-Siga os passos abaixo para rodar o projeto localmente:
-
-1. **Clone o repositório** para o seu ambiente local:
+1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/pessoas-enderecos.git
-Entre no diretório do projeto:
+   git clone https://github.com/OtavioRdR/pessoas-enderecos.git
+   ```
 
-bash
-Copiar código
-cd pessoas-enderecos
-Compile e execute o projeto utilizando o Maven:
+2. **Navegue até o diretório do projeto**:
+   ```bash
+   cd pessoas-enderecos
+   ```
 
-bash
-Copiar código
-mvn spring-boot:run
-Acesse a API através do endereço http://localhost:8080/pessoas.
+3. **Compile o projeto**:
+   ```bash
+   ./mvnw clean install
+   ```
 
-🖥️ Testando o CRUD
-Após rodar o projeto, você pode testar as funcionalidades utilizando ferramentas como Postman ou Insomnia. Aqui estão as rotas disponíveis na API:
+4. **Execute a aplicação**:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-GET /pessoas
-Retorna todas as pessoas cadastradas no sistema.
+## 📖 Uso
 
-POST /pessoas
-Cria uma nova pessoa. Você precisa enviar um corpo da requisição com as informações da pessoa, como nome, CPF e data de nascimento.
+A API está disponível em `http://localhost:8080/pessoas`. Aqui estão alguns exemplos de como usar a API:
 
-PUT /pessoas/{id}
-Atualiza as informações de uma pessoa existente. Informe o id da pessoa e o corpo da requisição com as novas informações.
+### Criar uma nova pessoa
+```bash
+curl -X POST http://localhost:8080/pessoas \
+-H "Content-Type: application/json" \
+-d '{"nome": "João Silva", "idade": 30, "email": "joao@example.com"}'
+```
 
-DELETE /pessoas/{id}
-Deleta uma pessoa pelo id.
+### Listar todas as pessoas
+```bash
+curl -X GET http://localhost:8080/pessoas
+```
 
-Exemplo de Uso com Postman:
-Criar Pessoa:
-Método: POST
-URL: http://localhost:8080/pessoas
-Corpo (JSON):
+### Buscar uma pessoa por ID
+```bash
+curl -X GET http://localhost:8080/pessoas/1
+```
 
-json
-Copiar código
-{
-    "nome": "João Silva",
-    "cpf": "123.456.789-00",
-    "dataNascimento": "1990-05-15"
-}
-Atualizar Pessoa:
-Método: PUT
-URL: http://localhost:8080/pessoas/1
-Corpo (JSON):
+### Atualizar uma pessoa
+```bash
+curl -X PUT http://localhost:8080/pessoas/1 \
+-H "Content-Type: application/json" \
+-d '{"nome": "João Silva", "idade": 31, "email": "joao.novo@example.com"}'
+```
 
-json
-Copiar código
-{
-    "nome": "João Silva Atualizado",
-    "cpf": "123.456.789-00",
-    "dataNascimento": "1990-05-15"
-}
-Excluir Pessoa:
-Método: DELETE
-URL: http://localhost:8080/pessoas/1
+### Excluir uma pessoa
+```bash
+curl -X DELETE http://localhost:8080/pessoas/1
+```
 
-🎨 Melhorias Futuras
-Embora o projeto já seja funcional, há várias melhorias que podem ser implementadas no futuro:
+## 🧪 Testes
 
-Validações de Entrada: Garantir que os dados inseridos sejam válidos e consistentes.
-Segurança: Implementar autenticação e autorização para proteger a API.
-Banco de Dados Real: Integrar com um banco de dados real, como MySQL ou PostgreSQL, em vez de usar o banco em memória H2.
-Interface de Usuário: Desenvolver uma interface gráfica para facilitar a interação com o sistema.
-🧑‍💻 Contribuições
-Este projeto é mantido pela equipe da DB, mas estamos abertos a contribuições! Se você deseja melhorar este sistema ou corrigir algum erro, siga estas etapas:
+Para executar os testes, use o seguinte comando:
+```bash
+./mvnw test
+```
 
-Faça um fork deste repositório.
-Crie uma nova branch (git checkout -b nova-feature).
-Realize as mudanças e faça o commit delas (git commit -am 'Adiciona nova feature').
-Envie o pull request.
-Todas as contribuições são bem-vindas, seja para melhorar a performance, segurança ou usabilidade do sistema.
+## 📄 Licença
 
-📧 Contato
-Se você tiver dúvidas ou quiser discutir sobre o projeto, entre em contato com a equipe de desenvolvimento da DB:
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
-Email: otavio.rodrigues@dbserver.com.br
-GitHub: https://github.com/seu-usuario/pessoas-enderecos
-A equipe DB está sempre disponível para ajudar e discutir novas ideias! Vamos crescer juntos! 💡🚀
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📫 Contato
+
+Se você tiver alguma dúvida ou sugestão, entre em contato:
+
+- **Otávio Rosa** - [otaviorosa.rdr@gmail.com](mailto:otaviorosa.rdr@gmail.com)
+- **GitHub** - [OtavioRdR](https://github.com/OtavioRdR)
