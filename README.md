@@ -25,97 +25,47 @@ Uma API RESTful para gerenciar pessoas e seus endereços, desenvolvida com Sprin
    git clone https://github.com/OtavioRdR/pessoas-enderecos.git
 Navegue até o diretório do projeto:
 
-bash
-
-Verify
-
-Open In Editor
-Run
-Copy code
 cd pessoas-enderecos
+
 Compile o projeto:
 
-bash
-
-Verify
-
-Open In Editor
-Run
-Copy code
 ./mvnw clean install
+
 Execute a aplicação:
 
-bash
-
-Verify
-
-Open In Editor
-Run
-Copy code
 ./mvnw spring-boot:run
+
 📖 Uso
 A API está disponível em http://localhost:8080/pessoas. Aqui estão alguns exemplos de como usar a API:
 
 Criar uma nova pessoa
-bash
 
-Verify
-
-Open In Editor
-Run
-Copy code
 curl -X POST http://localhost:8080/pessoas \
 -H "Content-Type: application/json" \
 -d '{"nome": "João Silva", "idade": 30, "email": "joao@example.com"}'
-Listar todas as pessoas
-bash
-
-Verify
-
-Open In Editor
-Run
-Copy code
 curl -X GET http://localhost:8080/pessoas
+
 Buscar uma pessoa por ID
-bash
 
-Verify
-
-Open In Editor
-Run
-Copy code
 curl -X GET http://localhost:8080/pessoas/1
+
 Atualizar uma pessoa
-bash
 
-Verify
-
-Open In Editor
-Run
-Copy code
 curl -X PUT http://localhost:8080/pessoas/1 \
 -H "Content-Type: application/json" \
 -d '{"nome": "João Silva", "idade": 31, "email": "joao.novo@example.com"}'
+
+
 Excluir uma pessoa
-bash
 
-Verify
-
-Open In Editor
-Run
-Copy code
 curl -X DELETE http://localhost:8080/pessoas/1
+
+
 🧪 Testes
 Para executar os testes, use o seguinte comando:
 
-bash
-
-Verify
-
-Open In Editor
-Run
-Copy code
 ./mvnw test
+
 📄 Licença
 Este projeto está licenciado sob a MIT License.
 
