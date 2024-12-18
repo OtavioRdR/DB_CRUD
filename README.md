@@ -23,57 +23,74 @@ Uma API RESTful para gerenciar pessoas e seus endereços, desenvolvida com Sprin
 1. **Clone o repositório**:
    ```bash
    git clone https://github.com/OtavioRdR/pessoas-enderecos.git
-Navegue até o diretório do projeto:
+   ```
 
-cd pessoas-enderecos
+2. **Navegue até o diretório do projeto**:
+   ```bash
+   cd pessoas-enderecos
+   ```
 
-Compile o projeto:
+3. **Compile o projeto**:
+   ```bash
+   ./mvnw clean install
+   ```
 
-./mvnw clean install
+4. **Execute a aplicação**:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-Execute a aplicação:
+## 📖 Uso
 
-./mvnw spring-boot:run
+A API está disponível em `http://localhost:8080/pessoas`. Aqui estão alguns exemplos de como usar a API:
 
-📖 Uso
-A API está disponível em http://localhost:8080/pessoas. Aqui estão alguns exemplos de como usar a API:
-
-Criar uma nova pessoa
-
+### Criar uma nova pessoa
+```bash
 curl -X POST http://localhost:8080/pessoas \
 -H "Content-Type: application/json" \
 -d '{"nome": "João Silva", "idade": 30, "email": "joao@example.com"}'
+```
+
+### Listar todas as pessoas
+```bash
 curl -X GET http://localhost:8080/pessoas
+```
 
-Buscar uma pessoa por ID
-
+### Buscar uma pessoa por ID
+```bash
 curl -X GET http://localhost:8080/pessoas/1
+```
 
-Atualizar uma pessoa
-
+### Atualizar uma pessoa
+```bash
 curl -X PUT http://localhost:8080/pessoas/1 \
 -H "Content-Type: application/json" \
 -d '{"nome": "João Silva", "idade": 31, "email": "joao.novo@example.com"}'
+```
 
-
-Excluir uma pessoa
-
+### Excluir uma pessoa
+```bash
 curl -X DELETE http://localhost:8080/pessoas/1
+```
 
+## 🧪 Testes
 
-🧪 Testes
 Para executar os testes, use o seguinte comando:
-
+```bash
 ./mvnw test
+```
 
-📄 Licença
-Este projeto está licenciado sob a MIT License.
+## 📄 Licença
 
-🤝 Contribuições
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+## 🤝 Contribuições
+
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-📫 Contato
+## 📫 Contato
+
 Se você tiver alguma dúvida ou sugestão, entre em contato:
 
-Seu Nome - seu-email@example.com
-GitHub - seu-usuario
+- **Otávio Rosa** - [otaviorosa.rdr@gmail.com](mailto:otaviorosa.rdr@gmail.com)
+- **GitHub** - [OtavioRdR](https://github.com/OtavioRdR)
