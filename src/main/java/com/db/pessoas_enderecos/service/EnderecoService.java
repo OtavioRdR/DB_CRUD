@@ -3,7 +3,7 @@ package com.db.pessoas_enderecos.service;
 import com.db.pessoas_enderecos.dto.EnderecoDTO;
 import com.db.pessoas_enderecos.entity.Endereco;
 import com.db.pessoas_enderecos.entity.Pessoa;
-import com.db.pessoas_enderecos.execption.ResourceNotFoundException;
+import com.db.pessoas_enderecos.exception.ResourceNotFoundException;
 import com.db.pessoas_enderecos.repository.EnderecoRepository;
 import com.db.pessoas_enderecos.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

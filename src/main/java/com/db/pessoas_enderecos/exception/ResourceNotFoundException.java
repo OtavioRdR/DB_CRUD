@@ -1,4 +1,4 @@
-package com.db.pessoas_enderecos.execption;
+package com.db.pessoas_enderecos.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 
