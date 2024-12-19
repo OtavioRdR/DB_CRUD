@@ -30,8 +30,8 @@ class PessoaServiceTest {
     void testAtualizarPessoa_Sucesso() {
         Long pessoaId = 1L;
         PessoaDTO pessoaDTO = new PessoaDTO();
-        pessoaDTO.setNome("João Silva");
-        pessoaDTO.setEmail("joao.silva@example.com");
+        pessoaDTO.setNome("Otavio Rosa");
+        pessoaDTO.setEmail("otavio.rosa@example.com");
 
 
         Pessoa pessoaMock = new Pessoa();
@@ -55,8 +55,8 @@ class PessoaServiceTest {
     void testAtualizarPessoa_FalhaPessoaNaoEncontrada() {
         Long pessoaId = 1L;
         PessoaDTO pessoaDTO = new PessoaDTO();
-        pessoaDTO.setNome("João Silva");
-        pessoaDTO.setEmail("joao.silva@example.com");
+        pessoaDTO.setNome("Otavio Rosa");
+        pessoaDTO.setEmail("otavio.rosa@example.com");
 
         when(pessoaRepository.findById(pessoaId)).thenReturn(Optional.empty());
 
